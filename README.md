@@ -92,7 +92,7 @@ OPENPOKE_MODE=offline .venv/bin/python -m task_router.cli repair
 ```
 
 Full upstream-runtime, API, concurrency, recovery, paid functional and browser
-checks are documented in the parent repository's handoff. Independent submission
+checks are documented in the [assessment repository](https://github.com/saikodakalla/openpoke-task-routing-assessment). Independent submission
 tests also pass when this folder is copied outside the repository with no `server/`.
 The external-host check extracts pristine upstream and applies only our small patch.
 

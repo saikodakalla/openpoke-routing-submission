@@ -7,6 +7,7 @@ Natural-language intake and actual tool execution are checked separately.
 
 import argparse
 import csv
+import hashlib
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -218,6 +219,27 @@ CASES = [
 ]
 
 
+def provenance():
+    source = Path(__file__).resolve().parents[1]
+    try:
+        commit = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=source, text=True, stderr=subprocess.DEVNULL
+        ).strip()
+        dirty = bool(
+            subprocess.check_output(
+                ["git", "status", "--porcelain"], cwd=source, text=True, stderr=subprocess.DEVNULL
+            ).strip()
+        )
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        commit, dirty = None, None
+    digest = hashlib.sha256()
+    for p in sorted((source / "task_router").glob("*")):
+        if p.suffix in {".py", ".sql"}:
+            digest.update(p.name.encode())
+            digest.update(p.read_bytes())
+    return dict(source_commit=commit, source_dirty=dirty, runtime_source_sha256=digest.hexdigest())
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--live", action="store_true", help="Explicitly permit paid real embeddings only")
@@ -341,8 +363,7 @@ def main():
     output = dict(
         scope="Conditional retrieval + deterministic verification with explicit contact/purpose context; not end-to-end language accuracy",
         mode="real OpenRouter embeddings" if args.live else "offline hash vectors; plumbing only",
-        source_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
-        source_dirty=bool(subprocess.check_output(["git", "status", "--porcelain"], text=True).strip()),
+        **provenance(),
         dataset="daily-life-showcase-v1",
         tasks=100,
         seed=27,
