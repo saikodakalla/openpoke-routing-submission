@@ -1,0 +1,11 @@
+{
+  "upstream_commit": "5b5f635935a64ab37884c025d70abb0ed731c094",
+  "host": "Pristine upstream archive + submitted runtime patch only",
+  "runtime": "OpenPoke ExecutionAgentRuntime",
+  "task_id": "task-0004",
+  "owner_id": "agent-0004",
+  "outcome": "awaiting_approval",
+  "draft_count": 1,
+  "embedding_vectors": 0,
+  "mode": "offline protocol fixture; real runtime/HTTP/SQLite"
+}

@@ -1,0 +1,22 @@
+flowchart TB
+  U([User request + conversation context]) --> Lookup
+  subgraph Direct[1 · Resolve ownership]
+    SQL[(SQLite · task registry)] <--> Lookup[Resolve saved names / verified links / recent context<br/>Contacts · dates · state · keywords]
+    Lookup --> Own{Owner established?}
+  end
+  Own -- Yes --> Resume[Authorize stable task + owner<br/>Acquire execution lease · load task history]
+  Own -- Uncertain --> Embed[Embed request using configured provider]
+  subgraph Fallback[2 · Retrieve and verify]
+    Embed --> Chroma[(Persistent Chroma<br/>Task summary embeddings)]
+    Chroma --> Verify[Reject stale versions · compare metadata<br/>Explainable score + ambiguity margin]
+    Verify --> Supported{Ownership supported?}
+  end
+  Supported -- Yes --> Resume
+  Supported -- Still uncertain --> Clarify[Persist pending request + evidence<br/>Ask one natural real-world question]
+  Clarify -. USER'S ANSWER · merge constraints .-> Lookup
+  Supported -- Clearly requested distinct new work --> New[Transaction: register task + owner<br/>Queue durable indexing update]
+  New --> Resume
+  Resume --> Execute[Existing OpenPoke execution runtime<br/>Task-scoped synthetic inbox tools]
+  Execute --> Outcome[Completed · awaiting approval · blocked · failed]
+  Outcome --> SQL
+  SQL -. Pending index versions · replayable updates .-> Chroma

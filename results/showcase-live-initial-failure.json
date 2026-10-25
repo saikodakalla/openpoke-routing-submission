@@ -1,0 +1,213 @@
+{
+  "scope": "Initial live functional failure retained; no order submitted",
+  "cause": "Model was shown an unapproved submission capability and attempted it; tool authorization rejected it.",
+  "fix": "Hide send/submit schemas until exact action approval, and supply task-scoped instructions.",
+  "traces": [
+    {
+      "request_id": "request-showcase-2bad837cca534ec09c5bf8027bf3db67",
+      "conversation_id": "showcase-pizza-548a9a34",
+      "mode": "live",
+      "path": "direct",
+      "candidates": [
+        {
+          "task_id": "task-0013",
+          "title": "Pizza orders \u00b7 Domino's",
+          "owner_id": "agent-0013",
+          "owner": "Execution: Vienna invoice payment review 12",
+          "state": "active",
+          "version": 2,
+          "contacts": [
+            {
+              "id": "contact-person12@example.test",
+              "name": "Person12",
+              "email": "person12@example.test"
+            }
+          ],
+          "start_date": null,
+          "threads": [
+            {
+              "id": "thread-0013",
+              "task_id": "task-0013",
+              "subject": "Vienna invoice payment review 12",
+              "recipient": "person12@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 22.5,
+          "components": {
+            "explicit_ownership": 20.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.0,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": null,
+          "ownership_supported": true,
+          "subject_supported": true,
+          "conflicts": [],
+          "evidence": [
+            {
+              "kind": "history",
+              "payload": "{\"text\": \"Past pizza orders from Domino's; saved repeat basket: Medium thin-crust margherita.\", \"synthetic\": true}",
+              "request_id": null
+            },
+            {
+              "kind": "history",
+              "payload": "{\"text\": \"Coordinate invoice payment review for Vienna with collaborator 12; reference plan 4685.\", \"action\": \"Earlier synthetic draft discussed; no email sent.\"}",
+              "request_id": null
+            },
+            {
+              "kind": "ownership",
+              "payload": "{\"owner_id\": \"agent-0013\", \"thread_id\": \"thread-0013\", \"contact\": \"person12@example.test\", \"purpose\": \"finance\", \"date\": \"2027-04-03\"}",
+              "request_id": null
+            }
+          ]
+        }
+      ],
+      "timings_ms": {
+        "lookup": 3.208792011719197,
+        "routing_total": 19.45795799838379,
+        "execution": 4668.036874994868
+      },
+      "decision": "reuse",
+      "task_id": "task-0013",
+      "owner_id": "agent-0013",
+      "new_agent_created": false,
+      "execution": {
+        "status": "failed",
+        "drafts": [
+          {
+            "id": "draft-request-showcase-2bad837cca534ec09c5bf8027bf3db67",
+            "task_id": "task-0013",
+            "request_id": "request-showcase-2bad837cca534ec09c5bf8027bf3db67",
+            "thread_id": "thread-0013",
+            "recipient": "person12@example.test",
+            "body": "Subject: Pizza Order Approval\n\nHi,\n\nI would like to place an order for a Medium thin-crust margherita pizza from Domino's. Please confirm if I can proceed with this order.\n\nThank you!",
+            "status": "draft",
+            "approved_by": null
+          }
+        ],
+        "orders": [
+          {
+            "id": "purchase-request-showcase-2bad837cca534ec09c5bf8027bf3db67",
+            "request_id": "request-showcase-2bad837cca534ec09c5bf8027bf3db67",
+            "task_id": "task-0013",
+            "merchant_id": "merchant-13",
+            "items": "Medium thin-crust margherita",
+            "status": "prepared",
+            "approved_by": null,
+            "merchant": "Domino's"
+          }
+        ],
+        "tools": [
+          "prepare_order",
+          "submit_approved_order",
+          "create_draft"
+        ],
+        "agent_name": "Execution: Vienna invoice payment review 12",
+        "error": "Failed tools: submit_approved_order",
+        "synthetic": true
+      },
+      "usage": [
+        {
+          "kind": "chat",
+          "model": "openai/gpt-4o-mini",
+          "tokens": 8301,
+          "cost_bound": 0.052005,
+          "usage": "{\"prompt_tokens\": 1382, \"completion_tokens\": 10, \"total_tokens\": 1392, \"cost\": 0.0002133, \"is_byok\": false, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"cache_write_tokens\": 0, \"audio_tokens\": 0, \"video_tokens\": 0}, \"cost_details\": {\"upstream_inference_cost\": 0.0002133, \"upstream_inference_prompt_cost\": 0.0002073, \"upstream_inference_completions_cost\": 6e-06}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"image_tokens\": 0, \"audio_tokens\": 0}}",
+          "status": "completed",
+          "elapsed_ms": 864.1464580141474
+        },
+        {
+          "kind": "chat",
+          "model": "openai/gpt-4o-mini",
+          "tokens": 8862,
+          "cost_bound": 0.05481,
+          "usage": "{\"prompt_tokens\": 1482, \"completion_tokens\": 12, \"total_tokens\": 1494, \"cost\": 0.0001335, \"is_byok\": false, \"prompt_tokens_details\": {\"cached_tokens\": 1280, \"cache_write_tokens\": 0, \"audio_tokens\": 0, \"video_tokens\": 0}, \"cost_details\": {\"upstream_inference_cost\": 0.0001335, \"upstream_inference_prompt_cost\": 0.0001263, \"upstream_inference_completions_cost\": 7.2e-06}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"image_tokens\": 0, \"audio_tokens\": 0}}",
+          "status": "completed",
+          "elapsed_ms": 688.9540409902111
+        },
+        {
+          "kind": "chat",
+          "model": "openai/gpt-4o-mini",
+          "tokens": 9276,
+          "cost_bound": 0.05688,
+          "usage": "{\"prompt_tokens\": 1535, \"completion_tokens\": 61, \"total_tokens\": 1596, \"cost\": 0.00016125, \"is_byok\": false, \"prompt_tokens_details\": {\"cached_tokens\": 1408, \"cache_write_tokens\": 0, \"audio_tokens\": 0, \"video_tokens\": 0}, \"cost_details\": {\"upstream_inference_cost\": 0.00016125, \"upstream_inference_prompt_cost\": 0.00012465, \"upstream_inference_completions_cost\": 3.66e-05}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"image_tokens\": 0, \"audio_tokens\": 0}}",
+          "status": "completed",
+          "elapsed_ms": 1122.4337500170805
+        },
+        {
+          "kind": "chat",
+          "model": "openai/gpt-4o-mini",
+          "tokens": 10250,
+          "cost_bound": 0.06175,
+          "usage": "{\"prompt_tokens\": 1738, \"completion_tokens\": 95, \"total_tokens\": 1833, \"cost\": 0.0002025, \"is_byok\": false, \"prompt_tokens_details\": {\"cached_tokens\": 1536, \"cache_write_tokens\": 0, \"audio_tokens\": 0, \"video_tokens\": 0}, \"cost_details\": {\"upstream_inference_cost\": 0.0002025, \"upstream_inference_prompt_cost\": 0.0001455, \"upstream_inference_completions_cost\": 5.7e-05}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"image_tokens\": 0, \"audio_tokens\": 0}}",
+          "status": "completed",
+          "elapsed_ms": 1932.177166978363
+        }
+      ],
+      "broader_search": false,
+      "parent_id": "request-showcase-29d10f9135234749a817a961175233eb",
+      "purchase_evidence": [
+        {
+          "id": "merchant-13",
+          "name": "Domino's",
+          "category": "pizza",
+          "aliases": "[\"dominoes\", \"dominos\", \"domino's\"]",
+          "task_id": "task-0013",
+          "frequency": 2
+        },
+        {
+          "id": "merchant-14",
+          "name": "Pizza Pizza",
+          "category": "pizza",
+          "aliases": "[\"pizza pizza\"]",
+          "task_id": "task-0014",
+          "frequency": 2
+        }
+      ],
+      "owner": "Execution: Vienna invoice payment review 12",
+      "task_version": 2,
+      "response": "Failed tools: submit_approved_order",
+      "resolved_request": {
+        "text": "Order pizza from my usual spot\nUser clarification: dominoes",
+        "conversation_id": "showcase-pizza-548a9a34",
+        "request_id": "request-showcase-2bad837cca534ec09c5bf8027bf3db67",
+        "task_id": "task-0013",
+        "thread_id": null,
+        "contact_email": null,
+        "contact_candidates": [],
+        "start_date": null,
+        "purpose": "dining",
+        "new_work": false,
+        "source": "user",
+        "approval_draft_id": null,
+        "approval_order_id": null,
+        "purchase": true
+      },
+      "verification": {
+        "engine": "deterministic-evidence-v1",
+        "checks": {
+          "compatible_metadata": true,
+          "ownership_evidence": true,
+          "score_threshold": true,
+          "ambiguity_margin": true
+        },
+        "best_score": 22.5,
+        "runner_up_score": 0,
+        "actual_margin": 22.5,
+        "threshold": 5.0,
+        "required_margin": 1.25,
+        "accepted": true,
+        "rejected_conflicts": 0,
+        "note": "Hard conflicts veto. All four checks must pass. Scores are not probabilities."
+      },
+      "threshold": 5.0,
+      "ambiguity_margin": 1.25
+    }
+  ]
+}

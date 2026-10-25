@@ -1,0 +1,2498 @@
+{
+  "scope": "Conditional retrieval + deterministic verification with explicit contact/purpose context; not end-to-end language accuracy",
+  "mode": "real OpenRouter embeddings",
+  "source_commit": "aa4a8df5fdcf7136e061935d204f88710df0b888",
+  "source_dirty": true,
+  "dataset": "daily-life-showcase-v1",
+  "tasks": 100,
+  "seed": 27,
+  "model": "openai/text-embedding-3-small",
+  "dimension": 1536,
+  "configuration": {
+    "threshold": 5.0,
+    "margin": 1.25,
+    "topic_similarity_min": 0.6,
+    "shortlist": 10,
+    "expansion": 30
+  },
+  "easy_sql": {
+    "correct": true,
+    "vectors_after": 0
+  },
+  "results": [
+    {
+      "case": "dev-coast",
+      "split": "development",
+      "text": "Email Noor about our upcoming oceanside holiday",
+      "supplied_contact": "noor@example.test",
+      "supplied_purpose": "travel",
+      "expected_task": "task-0007",
+      "expected_decision": "reuse",
+      "actual_task": "task-0007",
+      "actual_decision": "reuse",
+      "path": "vector",
+      "correct": true,
+      "wrong_reuse": false,
+      "correct_reuse": true,
+      "accepted": true,
+      "recall_at_10": true,
+      "retrieved_ids": [
+        "task-0007",
+        "task-0003",
+        "task-0004",
+        "task-0001",
+        "task-0048",
+        "task-0020",
+        "task-0041",
+        "task-0030",
+        "task-0029",
+        "task-0071"
+      ],
+      "candidates": [
+        {
+          "task_id": "task-0007",
+          "title": "Coastal retreat",
+          "owner_id": "agent-0007",
+          "owner": "Execution: Coastal retreat",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-noor@example.test",
+              "name": "Noor",
+              "email": "noor@example.test"
+            }
+          ],
+          "start_date": "2027-03-10",
+          "threads": [
+            {
+              "id": "thread-0007",
+              "task_id": "task-0007",
+              "subject": "Coastal retreat",
+              "recipient": "noor@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 5.955,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 3.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.955,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.6366355419158936,
+          "keyword_rank": -4.7272036152439405,
+          "ownership_supported": true,
+          "subject_supported": true,
+          "conflicts": [],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0003",
+          "title": "Hawaii \u00b7 Alice Morgan \u00b7 February",
+          "owner_id": "agent-0003",
+          "owner": "Execution: Hawaii \u00b7 Alice Morgan \u00b7 February",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.morgan@example.test",
+              "name": "Alice Morgan",
+              "email": "alice.morgan@example.test"
+            }
+          ],
+          "start_date": "2027-02-12",
+          "threads": [
+            {
+              "id": "thread-0003",
+              "task_id": "task-0003",
+              "subject": "Hawaii \u00b7 Alice Morgan \u00b7 February",
+              "recipient": "alice.morgan@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.485,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.485,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.32365894317626953,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "contact differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0004",
+          "title": "Hawaii \u00b7 Alice Chen \u00b7 June",
+          "owner_id": "agent-0004",
+          "owner": "Execution: Hawaii \u00b7 Alice Chen \u00b7 June",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.chen@example.test",
+              "name": "Alice Chen",
+              "email": "alice.chen@example.test"
+            }
+          ],
+          "start_date": "2027-06-20",
+          "threads": [
+            {
+              "id": "thread-0004",
+              "task_id": "task-0004",
+              "subject": "Hawaii \u00b7 Alice Chen \u00b7 June",
+              "recipient": "alice.chen@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.482,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.482,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.32125234603881836,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "contact differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0001",
+          "title": "Hawaii \u00b7 Alice Chen \u00b7 February",
+          "owner_id": "agent-0001",
+          "owner": "Email to Alice",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.chen@example.test",
+              "name": "Alice Chen",
+              "email": "alice.chen@example.test"
+            }
+          ],
+          "start_date": "2027-02-12",
+          "threads": [
+            {
+              "id": "thread-0001",
+              "task_id": "task-0001",
+              "subject": "Hawaii \u00b7 Alice Chen \u00b7 February",
+              "recipient": "alice.chen@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.463,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.463,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.3085010051727295,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "contact differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0030",
+          "title": "Oslo flight hotel trip 29",
+          "owner_id": "agent-0030",
+          "owner": "Execution: Oslo flight hotel trip 29",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person29@example.test",
+              "name": "Person29",
+              "email": "person29@example.test"
+            }
+          ],
+          "start_date": "2027-01-12",
+          "threads": [
+            {
+              "id": "thread-0030",
+              "task_id": "task-0030",
+              "subject": "Oslo flight hotel trip 29",
+              "recipient": "person29@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.444,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.444,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.2961857318878174,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "contact differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0029",
+          "title": "Oslo flight hotel trip 28",
+          "owner_id": "agent-0029",
+          "owner": "Execution: Oslo flight hotel trip 28",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person28@example.test",
+              "name": "Person28",
+              "email": "person28@example.test"
+            }
+          ],
+          "start_date": "2027-04-25",
+          "threads": [
+            {
+              "id": "thread-0029",
+              "task_id": "task-0029",
+              "subject": "Oslo flight hotel trip 28",
+              "recipient": "person28@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.426,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.426,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.2837250232696533,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "contact differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0071",
+          "title": "Oslo flight hotel trip 70",
+          "owner_id": "agent-0071",
+          "owner": "Execution: Oslo flight hotel trip 70",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person70@example.test",
+              "name": "Person70",
+              "email": "person70@example.test"
+            }
+          ],
+          "start_date": "2027-11-14",
+          "threads": [
+            {
+              "id": "thread-0071",
+              "task_id": "task-0071",
+              "subject": "Oslo flight hotel trip 70",
+              "recipient": "person70@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.424,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.424,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.282428503036499,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "contact differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0048",
+          "title": "Oslo restaurant team dinner 47",
+          "owner_id": "agent-0048",
+          "owner": "Execution: Oslo restaurant team dinner 47",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person47@example.test",
+              "name": "Person47",
+              "email": "person47@example.test"
+            }
+          ],
+          "start_date": "2027-02-19",
+          "threads": [
+            {
+              "id": "thread-0048",
+              "task_id": "task-0048",
+              "subject": "Oslo restaurant team dinner 47",
+              "recipient": "person47@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 0.46,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 0.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.46,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.30637216567993164,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "contact differs",
+            "purpose differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0020",
+          "title": "Oslo restaurant team dinner 19",
+          "owner_id": "agent-0020",
+          "owner": "Execution: Oslo restaurant team dinner 19",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person19@example.test",
+              "name": "Person19",
+              "email": "person19@example.test"
+            }
+          ],
+          "start_date": "2027-12-05",
+          "threads": [
+            {
+              "id": "thread-0020",
+              "task_id": "task-0020",
+              "subject": "Oslo restaurant team dinner 19",
+              "recipient": "person19@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 0.449,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 0.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.449,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.2994709014892578,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "contact differs",
+            "purpose differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0041",
+          "title": "Oslo restaurant team dinner 40",
+          "owner_id": "agent-0041",
+          "owner": "Execution: Oslo restaurant team dinner 40",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person40@example.test",
+              "name": "Person40",
+              "email": "person40@example.test"
+            }
+          ],
+          "start_date": "2027-06-10",
+          "threads": [
+            {
+              "id": "thread-0041",
+              "task_id": "task-0041",
+              "subject": "Oslo restaurant team dinner 40",
+              "recipient": "person40@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 0.449,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 0.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.449,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.2991195321083069,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "contact differs",
+            "purpose differs"
+          ],
+          "evidence": []
+        }
+      ],
+      "verification": {
+        "engine": "deterministic-evidence-v1",
+        "checks": {
+          "compatible_metadata": true,
+          "ownership_evidence": true,
+          "score_threshold": true,
+          "ambiguity_margin": true
+        },
+        "best_score": 5.955,
+        "runner_up_score": 0,
+        "actual_margin": 5.955,
+        "threshold": 5.0,
+        "required_margin": 1.25,
+        "accepted": true,
+        "rejected_conflicts": 9,
+        "note": "Hard conflicts veto. All four checks must pass. Scores are not probabilities."
+      },
+      "latency_ms": 2904.84,
+      "request_id": "request-c31d7fd557814a31"
+    },
+    {
+      "case": "dev-ambiguous",
+      "split": "development",
+      "text": "Write Alice about the Hawaii trip",
+      "supplied_contact": null,
+      "supplied_purpose": "travel",
+      "expected_task": null,
+      "expected_decision": "clarify",
+      "actual_task": null,
+      "actual_decision": "clarify",
+      "path": "vector",
+      "correct": true,
+      "wrong_reuse": false,
+      "correct_reuse": false,
+      "accepted": false,
+      "recall_at_10": null,
+      "retrieved_ids": [
+        "task-0003",
+        "task-0004",
+        "task-0001",
+        "task-0010",
+        "task-0011",
+        "task-0002",
+        "task-0005",
+        "task-0007",
+        "task-0044",
+        "task-0057"
+      ],
+      "candidates": [
+        {
+          "task_id": "task-0003",
+          "title": "Hawaii \u00b7 Alice Morgan \u00b7 February",
+          "owner_id": "agent-0003",
+          "owner": "Execution: Hawaii \u00b7 Alice Morgan \u00b7 February",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.morgan@example.test",
+              "name": "Alice Morgan",
+              "email": "alice.morgan@example.test"
+            }
+          ],
+          "start_date": "2027-02-12",
+          "threads": [
+            {
+              "id": "thread-0003",
+              "task_id": "task-0003",
+              "subject": "Hawaii \u00b7 Alice Morgan \u00b7 February",
+              "recipient": "alice.morgan@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 4.971,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 1.5,
+            "vector": 0.971,
+            "history": 0.5,
+            "state": 0.0
+          },
+          "similarity": 0.647010087966919,
+          "keyword_rank": -9.051100146992784,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [],
+          "evidence": [
+            {
+              "kind": "history",
+              "payload": "{\"text\": \"Book Hawaii trip hotel and island excursions with Alice Morgan.\", \"action\": \"Earlier synthetic draft discussed; no email sent.\"}",
+              "request_id": null
+            },
+            {
+              "kind": "ownership",
+              "payload": "{\"owner_id\": \"agent-0003\", \"thread_id\": \"thread-0003\", \"contact\": \"alice.morgan@example.test\", \"purpose\": \"travel\", \"date\": \"2027-02-12\"}",
+              "request_id": null
+            }
+          ]
+        },
+        {
+          "task_id": "task-0004",
+          "title": "Hawaii \u00b7 Alice Chen \u00b7 June",
+          "owner_id": "agent-0004",
+          "owner": "Execution: Hawaii \u00b7 Alice Chen \u00b7 June",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.chen@example.test",
+              "name": "Alice Chen",
+              "email": "alice.chen@example.test"
+            }
+          ],
+          "start_date": "2027-06-20",
+          "threads": [
+            {
+              "id": "thread-0004",
+              "task_id": "task-0004",
+              "subject": "Hawaii \u00b7 Alice Chen \u00b7 June",
+              "recipient": "alice.chen@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 4.442,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 1.0,
+            "vector": 0.942,
+            "history": 0.5,
+            "state": 0.0
+          },
+          "similarity": 0.6278318166732788,
+          "keyword_rank": -7.791316771709342,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [],
+          "evidence": [
+            {
+              "kind": "request",
+              "payload": "{\"text\": \"Write Alice Chen about the June Hawaii trip\", \"decision\": \"reuse\"}",
+              "request_id": "request-9f8d9ad3fd754e15"
+            },
+            {
+              "kind": "history",
+              "payload": "{\"text\": \"Plan another Hawaii vacation, summer flights and a quiet hotel with Alice Chen.\", \"action\": \"Earlier synthetic draft discussed; no email sent.\"}",
+              "request_id": null
+            },
+            {
+              "kind": "ownership",
+              "payload": "{\"owner_id\": \"agent-0004\", \"thread_id\": \"thread-0004\", \"contact\": \"alice.chen@example.test\", \"purpose\": \"travel\", \"date\": \"2027-06-20\"}",
+              "request_id": null
+            }
+          ]
+        },
+        {
+          "task_id": "task-0001",
+          "title": "Hawaii \u00b7 Alice Chen \u00b7 February",
+          "owner_id": "agent-0001",
+          "owner": "Email to Alice",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.chen@example.test",
+              "name": "Alice Chen",
+              "email": "alice.chen@example.test"
+            }
+          ],
+          "start_date": "2027-02-12",
+          "threads": [
+            {
+              "id": "thread-0001",
+              "task_id": "task-0001",
+              "subject": "Hawaii \u00b7 Alice Chen \u00b7 February",
+              "recipient": "alice.chen@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 3.918,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 1.0,
+            "vector": 0.918,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.6120268702507019,
+          "keyword_rank": -8.063170113360052,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0011",
+          "title": "Hawaii lodging alternatives",
+          "owner_id": "agent-0011",
+          "owner": "Execution: Hawaii lodging alternatives",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-group@example.test",
+              "name": "Group",
+              "email": "group@example.test"
+            }
+          ],
+          "start_date": "2027-02-12",
+          "threads": [
+            {
+              "id": "thread-0011",
+              "task_id": "task-0011",
+              "subject": "Hawaii lodging alternatives",
+              "recipient": "group@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 3.137,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.637,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.4245518445968628,
+          "keyword_rank": -4.177340120189788,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0044",
+          "title": "Vienna flight hotel trip 43",
+          "owner_id": "agent-0044",
+          "owner": "Execution: Vienna flight hotel trip 43",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person43@example.test",
+              "name": "Person43",
+              "email": "person43@example.test"
+            }
+          ],
+          "start_date": "2027-05-18",
+          "threads": [
+            {
+              "id": "thread-0044",
+              "task_id": "task-0044",
+              "subject": "Vienna flight hotel trip 43",
+              "recipient": "person43@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.931,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.431,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.287550687789917,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0057",
+          "title": "Vienna flight hotel trip 56",
+          "owner_id": "agent-0057",
+          "owner": "Execution: Vienna flight hotel trip 56",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person56@example.test",
+              "name": "Person56",
+              "email": "person56@example.test"
+            }
+          ],
+          "start_date": "2027-08-08",
+          "threads": [
+            {
+              "id": "thread-0057",
+              "task_id": "task-0057",
+              "subject": "Vienna flight hotel trip 56",
+              "recipient": "person56@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.931,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.431,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.28732961416244507,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0093",
+          "title": "Vienna flight hotel trip 92",
+          "owner_id": "agent-0093",
+          "owner": "Execution: Vienna flight hotel trip 92",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person92@example.test",
+              "name": "Person92",
+              "email": "person92@example.test"
+            }
+          ],
+          "start_date": "2027-02-25",
+          "threads": [
+            {
+              "id": "thread-0093",
+              "task_id": "task-0093",
+              "subject": "Vienna flight hotel trip 92",
+              "recipient": "person92@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.93,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.43,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.28636640310287476,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0076",
+          "title": "Vienna flight hotel trip 75",
+          "owner_id": "agent-0076",
+          "owner": "Execution: Vienna flight hotel trip 75",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person75@example.test",
+              "name": "Person75",
+              "email": "person75@example.test"
+            }
+          ],
+          "start_date": "2027-11-26",
+          "threads": [
+            {
+              "id": "thread-0076",
+              "task_id": "task-0076",
+              "subject": "Vienna flight hotel trip 75",
+              "recipient": "person75@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.927,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.427,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.28447890281677246,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0080",
+          "title": "Vienna flight hotel trip 79",
+          "owner_id": "agent-0080",
+          "owner": "Execution: Vienna flight hotel trip 79",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person79@example.test",
+              "name": "Person79",
+              "email": "person79@example.test"
+            }
+          ],
+          "start_date": "2027-03-25",
+          "threads": [
+            {
+              "id": "thread-0080",
+              "task_id": "task-0080",
+              "subject": "Vienna flight hotel trip 79",
+              "recipient": "person79@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.926,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.426,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.28423333168029785,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0023",
+          "title": "Nairobi flight hotel trip 22",
+          "owner_id": "agent-0023",
+          "owner": "Execution: Nairobi flight hotel trip 22",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person22@example.test",
+              "name": "Person22",
+              "email": "person22@example.test"
+            }
+          ],
+          "start_date": "2027-03-26",
+          "threads": [
+            {
+              "id": "thread-0023",
+              "task_id": "task-0023",
+              "subject": "Nairobi flight hotel trip 22",
+              "recipient": "person22@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.922,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.422,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.2810173034667969,
+          "keyword_rank": -1.0800206031288322,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0032",
+          "title": "Vienna flight hotel trip 31",
+          "owner_id": "agent-0032",
+          "owner": "Execution: Vienna flight hotel trip 31",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person31@example.test",
+              "name": "Person31",
+              "email": "person31@example.test"
+            }
+          ],
+          "start_date": "2027-06-24",
+          "threads": [
+            {
+              "id": "thread-0032",
+              "task_id": "task-0032",
+              "subject": "Vienna flight hotel trip 31",
+              "recipient": "person31@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.922,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.422,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.2816077470779419,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0092",
+          "title": "Vienna flight hotel trip 91",
+          "owner_id": "agent-0092",
+          "owner": "Execution: Vienna flight hotel trip 91",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person91@example.test",
+              "name": "Person91",
+              "email": "person91@example.test"
+            }
+          ],
+          "start_date": "2027-01-18",
+          "threads": [
+            {
+              "id": "thread-0092",
+              "task_id": "task-0092",
+              "subject": "Vienna flight hotel trip 91",
+              "recipient": "person91@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.92,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.42,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.27988284826278687,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0098",
+          "title": "Nairobi flight hotel trip 97",
+          "owner_id": "agent-0098",
+          "owner": "Execution: Nairobi flight hotel trip 97",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person97@example.test",
+              "name": "Person97",
+              "email": "person97@example.test"
+            }
+          ],
+          "start_date": "2027-05-19",
+          "threads": [
+            {
+              "id": "thread-0098",
+              "task_id": "task-0098",
+              "subject": "Nairobi flight hotel trip 97",
+              "recipient": "person97@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.919,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.419,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.27914994955062866,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0010",
+          "title": "Hawaii archival receipts",
+          "owner_id": "agent-0010",
+          "owner": "Execution: Hawaii archival receipts",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.chen@example.test",
+              "name": "Alice Chen",
+              "email": "alice.chen@example.test"
+            }
+          ],
+          "start_date": "2024-01-10",
+          "threads": [
+            {
+              "id": "thread-0010",
+              "task_id": "task-0010",
+              "subject": "Hawaii archival receipts",
+              "recipient": "alice.chen@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.909,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 0.0,
+            "date": 0.0,
+            "keyword": 1.5,
+            "vector": 0.909,
+            "history": 0.5,
+            "state": 0.0
+          },
+          "similarity": 0.6062482595443726,
+          "keyword_rank": -8.560221952931363,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "purpose differs"
+          ],
+          "evidence": [
+            {
+              "kind": "history",
+              "payload": "{\"text\": \"Hawaii trip expense invoice reconciliation with Alice Chen.\", \"action\": \"Earlier synthetic draft discussed; no email sent.\"}",
+              "request_id": null
+            },
+            {
+              "kind": "ownership",
+              "payload": "{\"owner_id\": \"agent-0010\", \"thread_id\": \"thread-0010\", \"contact\": \"alice.chen@example.test\", \"purpose\": \"finance\", \"date\": \"2024-01-10\"}",
+              "request_id": null
+            }
+          ]
+        },
+        {
+          "task_id": "task-0036",
+          "title": "Vienna flight hotel trip 35",
+          "owner_id": "agent-0036",
+          "owner": "Execution: Vienna flight hotel trip 35",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person35@example.test",
+              "name": "Person35",
+              "email": "person35@example.test"
+            }
+          ],
+          "start_date": "2027-10-12",
+          "threads": [
+            {
+              "id": "thread-0036",
+              "task_id": "task-0036",
+              "subject": "Vienna flight hotel trip 35",
+              "recipient": "person35@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.909,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.409,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.2729436755180359,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0030",
+          "title": "Oslo flight hotel trip 29",
+          "owner_id": "agent-0030",
+          "owner": "Execution: Oslo flight hotel trip 29",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person29@example.test",
+              "name": "Person29",
+              "email": "person29@example.test"
+            }
+          ],
+          "start_date": "2027-01-12",
+          "threads": [
+            {
+              "id": "thread-0030",
+              "task_id": "task-0030",
+              "subject": "Oslo flight hotel trip 29",
+              "recipient": "person29@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.906,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.406,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.27080273628234863,
+          "keyword_rank": -1.0800206031288322,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0058",
+          "title": "Oslo flight hotel trip 57",
+          "owner_id": "agent-0058",
+          "owner": "Execution: Oslo flight hotel trip 57",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person57@example.test",
+              "name": "Person57",
+              "email": "person57@example.test"
+            }
+          ],
+          "start_date": "2027-04-10",
+          "threads": [
+            {
+              "id": "thread-0058",
+              "task_id": "task-0058",
+              "subject": "Oslo flight hotel trip 57",
+              "recipient": "person57@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.9,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.4,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.2664414644241333,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0031",
+          "title": "Lima flight hotel trip 30",
+          "owner_id": "agent-0031",
+          "owner": "Execution: Lima flight hotel trip 30",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person30@example.test",
+              "name": "Person30",
+              "email": "person30@example.test"
+            }
+          ],
+          "start_date": "2027-09-14",
+          "threads": [
+            {
+              "id": "thread-0031",
+              "task_id": "task-0031",
+              "subject": "Lima flight hotel trip 30",
+              "recipient": "person30@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.889,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.389,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.25924545526504517,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0088",
+          "title": "Seoul flight hotel trip 87",
+          "owner_id": "agent-0088",
+          "owner": "Execution: Seoul flight hotel trip 87",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person87@example.test",
+              "name": "Person87",
+              "email": "person87@example.test"
+            }
+          ],
+          "start_date": "2027-05-24",
+          "threads": [
+            {
+              "id": "thread-0088",
+              "task_id": "task-0088",
+              "subject": "Seoul flight hotel trip 87",
+              "recipient": "person87@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.889,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.389,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.2591898441314697,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0097",
+          "title": "Seoul flight hotel trip 96",
+          "owner_id": "agent-0097",
+          "owner": "Execution: Seoul flight hotel trip 96",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person96@example.test",
+              "name": "Person96",
+              "email": "person96@example.test"
+            }
+          ],
+          "start_date": "2027-12-13",
+          "threads": [
+            {
+              "id": "thread-0097",
+              "task_id": "task-0097",
+              "subject": "Seoul flight hotel trip 96",
+              "recipient": "person96@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.889,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.389,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.25954926013946533,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0029",
+          "title": "Oslo flight hotel trip 28",
+          "owner_id": "agent-0029",
+          "owner": "Execution: Oslo flight hotel trip 28",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person28@example.test",
+              "name": "Person28",
+              "email": "person28@example.test"
+            }
+          ],
+          "start_date": "2027-04-25",
+          "threads": [
+            {
+              "id": "thread-0029",
+              "task_id": "task-0029",
+              "subject": "Oslo flight hotel trip 28",
+              "recipient": "person28@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.883,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.383,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.255099892616272,
+          "keyword_rank": -1.0800206031288322,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0075",
+          "title": "Lisbon flight hotel trip 74",
+          "owner_id": "agent-0075",
+          "owner": "Execution: Lisbon flight hotel trip 74",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person74@example.test",
+              "name": "Person74",
+              "email": "person74@example.test"
+            }
+          ],
+          "start_date": "2027-05-17",
+          "threads": [
+            {
+              "id": "thread-0075",
+              "task_id": "task-0075",
+              "subject": "Lisbon flight hotel trip 74",
+              "recipient": "person74@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.883,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.383,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.2553321123123169,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0091",
+          "title": "Lima flight hotel trip 90",
+          "owner_id": "agent-0091",
+          "owner": "Execution: Lima flight hotel trip 90",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person90@example.test",
+              "name": "Person90",
+              "email": "person90@example.test"
+            }
+          ],
+          "start_date": "2027-11-09",
+          "threads": [
+            {
+              "id": "thread-0091",
+              "task_id": "task-0091",
+              "subject": "Lima flight hotel trip 90",
+              "recipient": "person90@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.879,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.379,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.25234490633010864,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0062",
+          "title": "Seoul flight hotel trip 61",
+          "owner_id": "agent-0062",
+          "owner": "Execution: Seoul flight hotel trip 61",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person61@example.test",
+              "name": "Person61",
+              "email": "person61@example.test"
+            }
+          ],
+          "start_date": "2027-05-16",
+          "threads": [
+            {
+              "id": "thread-0062",
+              "task_id": "task-0062",
+              "subject": "Seoul flight hotel trip 61",
+              "recipient": "person61@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.872,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.372,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.24828565120697021,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0064",
+          "title": "Lima flight hotel trip 63",
+          "owner_id": "agent-0064",
+          "owner": "Execution: Lima flight hotel trip 63",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person63@example.test",
+              "name": "Person63",
+              "email": "person63@example.test"
+            }
+          ],
+          "start_date": "2027-03-27",
+          "threads": [
+            {
+              "id": "thread-0064",
+              "task_id": "task-0064",
+              "subject": "Lima flight hotel trip 63",
+              "recipient": "person63@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.865,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.365,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.24353158473968506,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0035",
+          "title": "Oslo flight hotel trip 34",
+          "owner_id": "agent-0035",
+          "owner": "Execution: Oslo flight hotel trip 34",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person34@example.test",
+              "name": "Person34",
+              "email": "person34@example.test"
+            }
+          ],
+          "start_date": "2027-04-05",
+          "threads": [
+            {
+              "id": "thread-0035",
+              "task_id": "task-0035",
+              "subject": "Oslo flight hotel trip 34",
+              "recipient": "person34@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.861,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.361,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.24099594354629517,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0005",
+          "title": "Kyoto autumn reunion",
+          "owner_id": "agent-0005",
+          "owner": "Execution: Kyoto autumn reunion",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-kenji@example.test",
+              "name": "Kenji",
+              "email": "kenji@example.test"
+            }
+          ],
+          "start_date": "2025-10-08",
+          "threads": [
+            {
+              "id": "thread-0005",
+              "task_id": "task-0005",
+              "subject": "Kyoto autumn reunion",
+              "recipient": "kenji@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.521,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.521,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.34762245416641235,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0019",
+          "title": "Toronto flight hotel trip 18",
+          "owner_id": "agent-0019",
+          "owner": "Execution: Toronto flight hotel trip 18",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person18@example.test",
+              "name": "Person18",
+              "email": "person18@example.test"
+            }
+          ],
+          "start_date": "2027-05-24",
+          "threads": [
+            {
+              "id": "thread-0019",
+              "task_id": "task-0019",
+              "subject": "Toronto flight hotel trip 18",
+              "recipient": "person18@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.5,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.5,
+            "vector": 0.0,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -1.0800206031288322,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0007",
+          "title": "Coastal retreat",
+          "owner_id": "agent-0007",
+          "owner": "Execution: Coastal retreat",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-noor@example.test",
+              "name": "Noor",
+              "email": "noor@example.test"
+            }
+          ],
+          "start_date": "2027-03-10",
+          "threads": [
+            {
+              "id": "thread-0007",
+              "task_id": "task-0007",
+              "subject": "Coastal retreat",
+              "recipient": "noor@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.432,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.432,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": 0.288093626499176,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0009",
+          "title": "Berlin train expedition",
+          "owner_id": "agent-0009",
+          "owner": "Execution: Berlin train expedition",
+          "state": "failed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-marta@example.test",
+              "name": "Marta",
+              "email": "marta@example.test"
+            }
+          ],
+          "start_date": "2027-05-09",
+          "threads": [
+            {
+              "id": "thread-0009",
+              "task_id": "task-0009",
+              "subject": "Berlin train expedition",
+              "recipient": "marta@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 1.906,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.0,
+            "vector": 0.406,
+            "history": 0.0,
+            "state": -0.5
+          },
+          "similarity": 0.27055227756500244,
+          "keyword_rank": null,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "person differs"
+          ],
+          "evidence": []
+        }
+      ],
+      "verification": {
+        "engine": "deterministic-evidence-v1",
+        "checks": {
+          "compatible_metadata": true,
+          "ownership_evidence": false,
+          "score_threshold": false,
+          "ambiguity_margin": false
+        },
+        "best_score": 4.971,
+        "runner_up_score": 4.442,
+        "actual_margin": 0.529,
+        "threshold": 5.0,
+        "required_margin": 1.25,
+        "accepted": false,
+        "rejected_conflicts": 27,
+        "note": "Hard conflicts veto. All four checks must pass. Scores are not probabilities."
+      },
+      "latency_ms": 823.22,
+      "request_id": "request-e02ddfe574ad43ab"
+    },
+    {
+      "case": "dev-sql",
+      "split": "development",
+      "text": "Write Alice Chen about the June Hawaii trip",
+      "supplied_contact": null,
+      "supplied_purpose": null,
+      "expected_task": "task-0004",
+      "expected_decision": "reuse",
+      "actual_task": "task-0004",
+      "actual_decision": "reuse",
+      "path": "keyword",
+      "correct": true,
+      "wrong_reuse": false,
+      "correct_reuse": true,
+      "accepted": true,
+      "recall_at_10": null,
+      "retrieved_ids": [],
+      "candidates": [
+        {
+          "task_id": "task-0004",
+          "title": "Hawaii \u00b7 Alice Chen \u00b7 June",
+          "owner_id": "agent-0004",
+          "owner": "Execution: Hawaii \u00b7 Alice Chen \u00b7 June",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.chen@example.test",
+              "name": "Alice Chen",
+              "email": "alice.chen@example.test"
+            }
+          ],
+          "start_date": "2027-06-20",
+          "threads": [
+            {
+              "id": "thread-0004",
+              "task_id": "task-0004",
+              "subject": "Hawaii \u00b7 Alice Chen \u00b7 June",
+              "recipient": "alice.chen@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 9.833,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 3.0,
+            "purpose": 2.0,
+            "date": 3.0,
+            "keyword": 1.333,
+            "vector": 0.0,
+            "history": 0.5,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -16.124655860929693,
+          "ownership_supported": true,
+          "subject_supported": true,
+          "conflicts": [],
+          "evidence": [
+            {
+              "kind": "request",
+              "payload": "{\"text\": \"Write Alice Chen about the June Hawaii trip\", \"decision\": \"reuse\"}",
+              "request_id": "request-9f8d9ad3fd754e15"
+            },
+            {
+              "kind": "history",
+              "payload": "{\"text\": \"Plan another Hawaii vacation, summer flights and a quiet hotel with Alice Chen.\", \"action\": \"Earlier synthetic draft discussed; no email sent.\"}",
+              "request_id": null
+            },
+            {
+              "kind": "ownership",
+              "payload": "{\"owner_id\": \"agent-0004\", \"thread_id\": \"thread-0004\", \"contact\": \"alice.chen@example.test\", \"purpose\": \"travel\", \"date\": \"2027-06-20\"}",
+              "request_id": null
+            }
+          ]
+        },
+        {
+          "task_id": "task-0001",
+          "title": "Hawaii \u00b7 Alice Chen \u00b7 February",
+          "owner_id": "agent-0001",
+          "owner": "Email to Alice",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.chen@example.test",
+              "name": "Alice Chen",
+              "email": "alice.chen@example.test"
+            }
+          ],
+          "start_date": "2027-02-12",
+          "threads": [
+            {
+              "id": "thread-0001",
+              "task_id": "task-0001",
+              "subject": "Hawaii \u00b7 Alice Chen \u00b7 February",
+              "recipient": "alice.chen@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 6.0,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 3.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 1.0,
+            "vector": 0.0,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -12.392899630327937,
+          "ownership_supported": true,
+          "subject_supported": true,
+          "conflicts": [
+            "date differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0010",
+          "title": "Hawaii archival receipts",
+          "owner_id": "agent-0010",
+          "owner": "Execution: Hawaii archival receipts",
+          "state": "completed",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.chen@example.test",
+              "name": "Alice Chen",
+              "email": "alice.chen@example.test"
+            }
+          ],
+          "start_date": "2024-01-10",
+          "threads": [
+            {
+              "id": "thread-0010",
+              "task_id": "task-0010",
+              "subject": "Hawaii archival receipts",
+              "recipient": "alice.chen@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 4.5,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 3.0,
+            "purpose": 0.0,
+            "date": 0.0,
+            "keyword": 1.0,
+            "vector": 0.0,
+            "history": 0.5,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -12.113774299904431,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "date differs",
+            "purpose differs"
+          ],
+          "evidence": [
+            {
+              "kind": "history",
+              "payload": "{\"text\": \"Hawaii trip expense invoice reconciliation with Alice Chen.\", \"action\": \"Earlier synthetic draft discussed; no email sent.\"}",
+              "request_id": null
+            },
+            {
+              "kind": "ownership",
+              "payload": "{\"owner_id\": \"agent-0010\", \"thread_id\": \"thread-0010\", \"contact\": \"alice.chen@example.test\", \"purpose\": \"finance\", \"date\": \"2024-01-10\"}",
+              "request_id": null
+            }
+          ]
+        },
+        {
+          "task_id": "task-0002",
+          "title": "Hawaiian pizza \u00b7 Alice Chen",
+          "owner_id": "agent-0002",
+          "owner": "Execution: Hawaiian pizza \u00b7 Alice Chen",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.chen@example.test",
+              "name": "Alice Chen",
+              "email": "alice.chen@example.test"
+            }
+          ],
+          "start_date": "2026-11-04",
+          "threads": [
+            {
+              "id": "thread-0002",
+              "task_id": "task-0002",
+              "subject": "Hawaiian pizza \u00b7 Alice Chen",
+              "recipient": "alice.chen@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 3.667,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 3.0,
+            "purpose": 0.0,
+            "date": 0.0,
+            "keyword": 0.667,
+            "vector": 0.0,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -6.490662938265144,
+          "ownership_supported": false,
+          "subject_supported": false,
+          "conflicts": [
+            "date differs",
+            "purpose differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0003",
+          "title": "Hawaii \u00b7 Alice Morgan \u00b7 February",
+          "owner_id": "agent-0003",
+          "owner": "Execution: Hawaii \u00b7 Alice Morgan \u00b7 February",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-alice.morgan@example.test",
+              "name": "Alice Morgan",
+              "email": "alice.morgan@example.test"
+            }
+          ],
+          "start_date": "2027-02-12",
+          "threads": [
+            {
+              "id": "thread-0003",
+              "task_id": "task-0003",
+              "subject": "Hawaii \u00b7 Alice Morgan \u00b7 February",
+              "recipient": "alice.morgan@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 3.5,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 1.0,
+            "vector": 0.0,
+            "history": 0.5,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -9.051100146992784,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "contact differs",
+            "date differs"
+          ],
+          "evidence": [
+            {
+              "kind": "history",
+              "payload": "{\"text\": \"Book Hawaii trip hotel and island excursions with Alice Morgan.\", \"action\": \"Earlier synthetic draft discussed; no email sent.\"}",
+              "request_id": null
+            },
+            {
+              "kind": "ownership",
+              "payload": "{\"owner_id\": \"agent-0003\", \"thread_id\": \"thread-0003\", \"contact\": \"alice.morgan@example.test\", \"purpose\": \"travel\", \"date\": \"2027-02-12\"}",
+              "request_id": null
+            }
+          ]
+        },
+        {
+          "task_id": "task-0011",
+          "title": "Hawaii lodging alternatives",
+          "owner_id": "agent-0011",
+          "owner": "Execution: Hawaii lodging alternatives",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-group@example.test",
+              "name": "Group",
+              "email": "group@example.test"
+            }
+          ],
+          "start_date": "2027-02-12",
+          "threads": [
+            {
+              "id": "thread-0011",
+              "task_id": "task-0011",
+              "subject": "Hawaii lodging alternatives",
+              "recipient": "group@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.333,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.333,
+            "vector": 0.0,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -4.177340120189788,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "contact differs",
+            "date differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0019",
+          "title": "Toronto flight hotel trip 18",
+          "owner_id": "agent-0019",
+          "owner": "Execution: Toronto flight hotel trip 18",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person18@example.test",
+              "name": "Person18",
+              "email": "person18@example.test"
+            }
+          ],
+          "start_date": "2027-05-24",
+          "threads": [
+            {
+              "id": "thread-0019",
+              "task_id": "task-0019",
+              "subject": "Toronto flight hotel trip 18",
+              "recipient": "person18@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.333,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.333,
+            "vector": 0.0,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -1.0800206031288322,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "contact differs",
+            "date differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0023",
+          "title": "Nairobi flight hotel trip 22",
+          "owner_id": "agent-0023",
+          "owner": "Execution: Nairobi flight hotel trip 22",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person22@example.test",
+              "name": "Person22",
+              "email": "person22@example.test"
+            }
+          ],
+          "start_date": "2027-03-26",
+          "threads": [
+            {
+              "id": "thread-0023",
+              "task_id": "task-0023",
+              "subject": "Nairobi flight hotel trip 22",
+              "recipient": "person22@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.333,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.333,
+            "vector": 0.0,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -1.0800206031288322,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "contact differs",
+            "date differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0029",
+          "title": "Oslo flight hotel trip 28",
+          "owner_id": "agent-0029",
+          "owner": "Execution: Oslo flight hotel trip 28",
+          "state": "dormant",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person28@example.test",
+              "name": "Person28",
+              "email": "person28@example.test"
+            }
+          ],
+          "start_date": "2027-04-25",
+          "threads": [
+            {
+              "id": "thread-0029",
+              "task_id": "task-0029",
+              "subject": "Oslo flight hotel trip 28",
+              "recipient": "person28@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.333,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.333,
+            "vector": 0.0,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -1.0800206031288322,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "contact differs",
+            "date differs"
+          ],
+          "evidence": []
+        },
+        {
+          "task_id": "task-0030",
+          "title": "Oslo flight hotel trip 29",
+          "owner_id": "agent-0030",
+          "owner": "Execution: Oslo flight hotel trip 29",
+          "state": "active",
+          "version": 1,
+          "contacts": [
+            {
+              "id": "contact-person29@example.test",
+              "name": "Person29",
+              "email": "person29@example.test"
+            }
+          ],
+          "start_date": "2027-01-12",
+          "threads": [
+            {
+              "id": "thread-0030",
+              "task_id": "task-0030",
+              "subject": "Oslo flight hotel trip 29",
+              "recipient": "person29@example.test",
+              "verified": 1
+            }
+          ],
+          "score": 2.333,
+          "components": {
+            "explicit_ownership": 0.0,
+            "contact_identity": 0.0,
+            "purpose": 2.0,
+            "date": 0.0,
+            "keyword": 0.333,
+            "vector": 0.0,
+            "history": 0.0,
+            "state": 0.0
+          },
+          "similarity": null,
+          "keyword_rank": -1.0800206031288322,
+          "ownership_supported": false,
+          "subject_supported": true,
+          "conflicts": [
+            "contact differs",
+            "date differs"
+          ],
+          "evidence": []
+        }
+      ],
+      "verification": {
+        "engine": "deterministic-evidence-v1",
+        "checks": {
+          "compatible_metadata": true,
+          "ownership_evidence": true,
+          "score_threshold": true,
+          "ambiguity_margin": true
+        },
+        "best_score": 9.833,
+        "runner_up_score": 0,
+        "actual_margin": 9.833,
+        "threshold": 5.0,
+        "required_margin": 1.25,
+        "accepted": true,
+        "rejected_conflicts": 9,
+        "note": "Hard conflicts veto. All four checks must pass. Scores are not probabilities."
+      },
+      "latency_ms": 63.99,
+      "request_id": "request-79547106f2664a2b"
+    }
+  ],
+  "aggregate": {
+    "development": {
+      "n": 3,
+      "correct": 3,
+      "decision_accuracy": 1.0,
+      "accepted_reuses": 2,
+      "wrong_reuses": 0,
+      "reuse_precision": 1.0,
+      "wrong_reuse_rate": 0.0,
+      "clarification_rate": 0.3333333333333333,
+      "vector_recall_n": 1,
+      "recall_at_10": 1.0,
+      "median_latency_ms": 823.22,
+      "p95_latency_ms": 2904.84
+    }
+  },
+  "provider_calls": [
+    {
+      "kind": "embedding",
+      "model": "openai/text-embedding-3-small",
+      "status": "completed",
+      "usage": "{\"prompt_tokens\": 1554, \"total_tokens\": 1554, \"cost\": 3.108e-05, \"is_byok\": false, \"cost_details\": {\"upstream_inference_cost\": 3.108e-05, \"upstream_inference_prompt_cost\": 3.108e-05, \"upstream_inference_completions_cost\": 0}}",
+      "cost_bound": 0.007582,
+      "elapsed_ms": 1104.308999987552
+    },
+    {
+      "kind": "embedding",
+      "model": "openai/text-embedding-3-small",
+      "status": "completed",
+      "usage": "{\"prompt_tokens\": 933, \"total_tokens\": 933, \"cost\": 1.866e-05, \"is_byok\": false, \"cost_details\": {\"upstream_inference_cost\": 1.866e-05, \"upstream_inference_prompt_cost\": 1.866e-05, \"upstream_inference_completions_cost\": 0}}",
+      "cost_bound": 0.004455,
+      "elapsed_ms": 637.635291001061
+    },
+    {
+      "kind": "embedding",
+      "model": "openai/text-embedding-3-small",
+      "status": "completed",
+      "usage": "{\"prompt_tokens\": 9, \"total_tokens\": 9, \"cost\": 1.8e-07, \"is_byok\": false, \"cost_details\": {\"upstream_inference_cost\": 1.8e-07, \"upstream_inference_prompt_cost\": 1.8e-07, \"upstream_inference_completions_cost\": 0}}",
+      "cost_bound": 0.000152,
+      "elapsed_ms": 321.346957993228
+    },
+    {
+      "kind": "embedding",
+      "model": "openai/text-embedding-3-small",
+      "status": "completed",
+      "usage": "{\"prompt_tokens\": 6, \"total_tokens\": 6, \"cost\": 1.2e-07, \"is_byok\": false, \"cost_details\": {\"upstream_inference_cost\": 1.2e-07, \"upstream_inference_prompt_cost\": 1.2e-07, \"upstream_inference_completions_cost\": 0}}",
+      "cost_bound": 0.000138,
+      "elapsed_ms": 373.21104199509136
+    }
+  ],
+  "provider_reported_cost": 5.004e-05,
+  "cost_complete": true,
+  "budgets": {
+    "calls": 40,
+    "tokens": 150000,
+    "cost": 0.5
+  },
+  "failures": []
+}

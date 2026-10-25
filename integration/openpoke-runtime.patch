@@ -1,0 +1,82 @@
+diff --git a/server/agents/execution_agent/runtime.py b/server/agents/execution_agent/runtime.py
+index 8a2dfd2..0361477 100644
+--- a/server/agents/execution_agent/runtime.py
++++ b/server/agents/execution_agent/runtime.py
+@@ -20,6 +20,7 @@ class ExecutionResult:
+     response: str
+     error: Optional[str] = None
+     tools_executed: List[str] = None
++    status: str = "completed"
+ 
+ 
+ class ExecutionAgentRuntime:
+@@ -28,7 +29,7 @@ class ExecutionAgentRuntime:
+     MAX_TOOL_ITERATIONS = 8
+ 
+     # Initialize execution agent runtime with settings, tools, and agent instance
+-    def __init__(self, agent_name: str):
++    def __init__(self, agent_name: str, *, dependencies=None):
+         settings = get_settings()
+         self.agent = ExecutionAgent(agent_name)
+         self.api_key = settings.openrouter_api_key
+@@ -36,6 +37,17 @@ class ExecutionAgentRuntime:
+         self.tool_registry = get_tool_registry(agent_name=agent_name)
+         self.tool_schemas = get_tool_schemas()
+ 
++        self.tool_observer = None
++        self.chat_completion = request_chat_completion
++        if dependencies is not None:
++            # Proposed routing uses this same loop with task-scoped tools/providers.
++            self.agent = dependencies["agent"]
++            self.model = dependencies["model"]
++            self.tool_registry = dependencies["registry"]
++            self.tool_schemas = dependencies["schemas"]
++            self.chat_completion = dependencies["chat"]
++            self.tool_observer = dependencies.get("tool_observer")
++            self.api_key = "injected-provider"
+         if not self.api_key:
+             raise ValueError("OpenRouter API key not configured. Set OPENROUTER_API_KEY environment variable.")
+ 
+@@ -50,6 +62,7 @@ class ExecutionAgentRuntime:
+             messages = [{"role": "user", "content": instructions}]
+             tools_executed: List[str] = []
+             final_response: Optional[str] = None
++            failed_tools: List[str] = []
+ 
+             for iteration in range(self.MAX_TOOL_ITERATIONS):
+                 logger.info(
+@@ -97,8 +110,13 @@ class ExecutionAgentRuntime:
+                     tools_executed.append(tool_name)
+                     logger.info(f"[{self.agent.name}] Executing tool: {tool_name}")
+ 
++                    operation_id = self.tool_observer("started", tool_name, tool_args) if self.tool_observer else None
+                     success, result = await self._execute_tool(tool_name, tool_args)
++                    if self.tool_observer:
++                        self.tool_observer("completed" if success else "failed", tool_name, result, operation_id)
+ 
++                    if not success:
++                        failed_tools.append(tool_name)
+                     if success:
+                         logger.info(f"[{self.agent.name}] Tool {tool_name} completed successfully")
+                         record_payload = self._safe_json_dump(result)
+@@ -130,8 +148,10 @@ class ExecutionAgentRuntime:
+ 
+             return ExecutionResult(
+                 agent_name=self.agent.name,
+-                success=True,
++                success=not failed_tools,
+                 response=final_response,
++                error=("Failed tools: " + ", ".join(failed_tools)) if failed_tools else None,
++                status="failed" if failed_tools else "completed",
+                 tools_executed=tools_executed
+             )
+ 
+@@ -153,7 +173,7 @@ class ExecutionAgentRuntime:
+         """Make an LLM call."""
+         tools_to_send = self.tool_schemas if with_tools else None
+         logger.info(f"[{self.agent.name}] Calling LLM with model: {self.model}, tools: {len(tools_to_send) if tools_to_send else 0}")
+-        return await request_chat_completion(
++        return await self.chat_completion(
+             model=self.model,
+             messages=messages,
+             system=system_prompt,

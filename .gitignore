@@ -1,0 +1,16 @@
+.env
+.env.*.local
+.venv/
+data/
+node_modules/
+.next/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.tsbuildinfo
+*.sqlite3*
+*.db*
+*.log
+web/test-results/
+web/playwright-report/

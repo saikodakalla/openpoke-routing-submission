@@ -1,0 +1,139 @@
+erDiagram
+  agents ||--o{ tasks : owns
+  tasks ||--o{ task_contacts : involves
+  contacts ||--o{ task_contacts : identifies
+  tasks ||--o{ threads : owns
+  tasks ||--o{ conversation_links : linked
+  tasks ||--o{ task_events : records
+  tasks ||--o{ commitments : retains
+  agents ||--o{ commitments : scopes
+  tasks ||--o{ index_state : versions
+  tasks ||--o{ executions : leases
+  agents ||--o{ executions : executes
+  routing_runs ||--o{ messages : correlates
+  routing_runs ||--o| executions : dispatches
+  routing_runs ||--o{ routing_runs : clarifies
+  tasks ||--o{ drafts : produces
+  threads ||--o{ drafts : addresses
+  agents { text id PK
+    text legacy_name UK
+    text history_ref }
+  tasks { text id PK
+    text owner_id FK
+    text title
+    text summary
+    text purpose
+    text state
+    text start_date
+    text end_date
+    int version
+    text dedupe_key UK }
+  contacts { text id PK
+    text name
+    text email UK }
+  task_contacts { text task_id PK,FK
+    text contact_id PK,FK }
+  threads { text id PK
+    text task_id FK
+    text subject
+    text recipient
+    int verified }
+  conversation_links { text conversation_id PK
+    text message_id PK
+    text task_id PK,FK
+    text evidence }
+  task_events { int id PK
+    text task_id FK
+    text request_id
+    text kind
+    json payload }
+  routing_runs { text id PK
+    text conversation_id
+    json original_request
+    json resolved_request
+    text status
+    json trace
+    json pending
+    text parent_id FK }
+  messages { int id PK
+    text request_id FK
+    text conversation_id
+    text role
+    text content }
+  index_state { text task_id PK,FK
+    text collection PK
+    int indexed_version
+    int pending_version
+    text error }
+  embedding_cache { text model PK
+    int dimension PK
+    text content_hash PK
+    json vector }
+  executions { text request_id PK,FK
+    text task_id FK
+    text owner_id FK
+    text status
+    json result
+    float lease_until }
+  drafts { text id PK
+    text task_id FK
+    text request_id
+    text thread_id FK
+    text recipient
+    text body
+    text status
+    text approved_by }
+  commitments { text id PK
+    text task_id FK
+    text owner_id FK
+    text due_at
+    text payload
+    text state }
+  provider_calls { int id PK
+    text request_id
+    text model
+    text kind
+    int tokens
+    float cost_bound
+    json usage
+    text status
+    float elapsed_ms }
+  index_collections ||--o{ index_state : namespaces
+  index_collections { text name PK
+    text model
+    int dimension
+    int summary_version }
+
+  request_activity { int id PK
+    text request_id
+    text operation_id
+    text kind
+    text label
+    text status
+    json detail
+    text created_at }
+
+  tasks ||--o| merchants : represents
+  merchants ||--o{ orders : receipts
+  tasks ||--o{ orders : purchase_history
+  routing_runs ||--o| order_requests : prepares
+  tasks ||--o{ order_requests : owns
+  merchants ||--o{ order_requests : fulfills
+  merchants { text id PK
+    text name
+    text category
+    json aliases
+    text task_id FK,UK }
+  orders { text id PK
+    text merchant_id FK
+    text task_id FK
+    text items
+    text ordered_at
+    text status }
+  order_requests { text id PK
+    text request_id FK,UK
+    text task_id FK
+    text merchant_id FK
+    text items
+    text status
+    text approved_by }
