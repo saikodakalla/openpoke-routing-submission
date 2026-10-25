@@ -414,7 +414,7 @@ def main():
             "recall_at_10",
             "latency_ms",
         ]
-        writer = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
+        writer = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         writer.writerows(results)
     print(
