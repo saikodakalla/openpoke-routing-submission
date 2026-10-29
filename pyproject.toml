@@ -12,6 +12,12 @@ dev = ["pytest==8.4.2", "pytest-asyncio==1.2.0", "ruff==0.14.2"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+pythonpath = ["."]
+addopts = "-ra --strict-markers"
+markers = [
+  "openpoke_integration: real OpenPoke execution loop; requires --openpoke-root or OPENPOKE_TEST_ROOT",
+  "parent_app_integration: preserved legacy API guards; requires the modified parent assessment app",
+]
 [tool.ruff]
 line-length = 110
 [tool.ruff.lint]

@@ -65,7 +65,17 @@ async def stream(payload: Chat):
         loop = asyncio.get_running_loop()
 
         def publish(event):
-            loop.call_soon_threadsafe(queue.put_nowait, ("activity", event))
+            item = ("activity", event)
+            try:
+                on_stream_loop = asyncio.get_running_loop() is loop
+            except RuntimeError:
+                on_stream_loop = False
+            if on_stream_loop:
+                # Fast tools can finish without yielding. Keep their activity
+                # ahead of the terminal result instead of deferring it a turn.
+                queue.put_nowait(item)
+            else:
+                loop.call_soon_threadsafe(queue.put_nowait, item)
 
         async def run():
             try:

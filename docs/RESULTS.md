@@ -94,11 +94,24 @@ capabilities are absent from the model's tool list.
 
 ## Verification and evidence
 
-- Full parent-repository backend/unit/integration suite: **79 tests** after the new
-  capability regression; includes real SQLite/Chroma, restart, races, failure and
-  bridge behavior. Five upstream deprecation warnings remain.
-- Independent submission unit tests: **3**, also verified after copying the folder
-  outside the repository with no upstream `server/` import available.
+- The standalone repository now collects **79 Python tests**: all **76** parent
+  assessment cases and the original **3** standalone checks. The earlier wording
+  of this document incorrectly attributed all 79 to the parent suite.
+- Without OpenPoke: **49 passed, 30 explicitly marked integration tests skipped**.
+  With pristine pinned upstream and the runtime patch: **78 passed, 1 skipped**;
+  the remaining case checks legacy endpoints/guards in the modified parent app
+  and separately passes with that app. Original names and assertions are retained.
+  Run `.venv/bin/python -m pytest -q`; to include the original runtime, add
+  `--openpoke-root=/absolute/path/to/openpoke`. The fixture copies the external
+  server into a temporary directory and applies the submitted runtime patch there
+  if needed, preserving the source checkout. Models are controlled fixtures; no
+  API key is required. The legacy-parent-only case is explicitly marked
+  `parent_app_integration`; the other runtime cases use `openpoke_integration`.
+- Migration exposed a standalone SSE ordering defect: fast tool activity could be
+  queued behind the final result. The stream publisher now immediately enqueues
+  activity on its own loop while retaining thread-safe delivery from worker
+  threads. The migrated stream test passes without changed assertions. Routing,
+  verification, schema and embedding behaviour are unchanged.
 - Browser suite: **18 passed** using the offline model fixture with real HTTP bridge,
   upstream runtime, SQLite and Chroma. This includes database/schema navigation,
   FK references, mobile overflow, activity, natural clarification and approvals.
